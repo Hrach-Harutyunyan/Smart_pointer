@@ -11,7 +11,7 @@ template <class T>
 unique_ptr<T>::unique_ptr(T* pointer) : ptr(pointer) {} ;
 
 template <class T>
-unique_ptr<T>::unique_ptr(unique_ptr<T>&& rhs) noexcept : ptr(nullptr){
+unique_ptr<T>::unique_ptr(unique_ptr<T>&& rhs) noexcept : ptr(nullptr) {
     rhs.swap(*this);
 };
 
@@ -41,7 +41,7 @@ T* unique_ptr<T>::operator ->() const {
 };
 
 template <class T>
-unique_ptr<T>::operator bool()  const  {
+unique_ptr<T>::operator bool() const {
     return (ptr == nullptr? false:true);
 };
 
@@ -57,13 +57,13 @@ T* unique_ptr<T>::get() {
 }
 
 template <class T>
-void unique_ptr<T>::reset(){
+void unique_ptr<T>::reset() {
     delete this->ptr;
     this->ptr = nullptr;
 }
 
 template <class T>
-void unique_ptr<T>::release(){
+void unique_ptr<T>::release() {
     this->ptr = nullptr;
 }
 
